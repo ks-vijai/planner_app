@@ -250,6 +250,8 @@
 
 .options:hover {
   background-color: aliceblue;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 
 .login-snackbar {

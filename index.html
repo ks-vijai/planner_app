@@ -21,6 +21,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon-icon.png" />
     <title>TO-DO List Planner</title>
   </head>
   <body>
@@ -59,7 +60,9 @@
             class="form-input"
             spellcheck="false"
           />
-          <label for="user-types" class="user-details user-type"> </label>
+          <label for="user-types" class="user-details user-type"
+            >User Type</label
+          >
           <div class="user-type-box">
             <div class="form-input custom-select" id="user-types-box">
               <p id="user-types">Select User Type...</p>
@@ -210,9 +213,7 @@
                   <img src="./assets/profile-icon.jpg" alt="Profile Image" />
                   <div>
                     <h2 id="logged-username" class="profile-user-name">Name</h2>
-                    <h4 id="logged-usertype" class="profile-user-type">
-                      User Type
-                    </h4>
+                    <h4 id="logged-usertype" class="profile-user-type"></h4>
                   </div>
                 </div>
                 <hr />

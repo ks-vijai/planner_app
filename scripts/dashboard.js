@@ -243,9 +243,9 @@ function createAndUpdateTaskCard(taskDetails, noOfDays, message, color) {
           <i class="bi bi-check-circle tick-icon" id="change-task-progress"></i>
         </button>
         <div class="dropdown-content" id="dropdown-content-${count}">
-           <p onclick="changeTaskProgress('New',taskname${count},'task-cards-${count}','dropdown-content-${count}')">TO-DO</p>
-           <p onclick="changeTaskProgress('Inprogress',taskname${count},'task-cards-${count}','dropdown-content-${count}')">Inprogress</p>
-           <p onclick="changeTaskProgress('Completed',taskname${count},'task-cards-${count}','dropdown-content-${count}')">Completed</p>
+           <p id="change-todo-task" onclick="changeTaskProgress('New',taskname${count},'task-cards-${count}','dropdown-content-${count}')">TO-DO</p>
+           <p id="change-inprogress-task" onclick="changeTaskProgress('Inprogress',taskname${count},'task-cards-${count}','dropdown-content-${count}')">Inprogress</p>
+           <p id="change-completed-task" onclick="changeTaskProgress('Completed',taskname${count},'task-cards-${count}','dropdown-content-${count}')">Completed</p>
         </div>
        <span id="taskname${count}">${taskDetails.taskName}</span>
       </div>
@@ -281,7 +281,12 @@ function createAndUpdateTaskCard(taskDetails, noOfDays, message, color) {
 }
 
 async function viewTaskCard(event, taskName, count) {
-  if (event.target.id !== "change-task-progress") {
+  if (
+    event.target.id !== "change-task-progress" &&
+    event.target.id !== "change-todo-task" &&
+    event.target.id !== "change-inprogress-task" &&
+    event.target.id !== "change-completed-task"
+  ) {
     document
       .getElementById(`dropdown-content-${count}`)
       .classList.remove("display-profile");
@@ -334,7 +339,6 @@ async function changeTaskProgress(
   taskCardId,
   dropdownId
 ) {
-  viewModal.classList.toggle("show-modal");
   document.getElementById(dropdownId).classList.remove("display-profile");
   let getTaskDetail = await getSingleTask(
     loginUseremail.value.toLowerCase(),
